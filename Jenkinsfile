@@ -1,14 +1,27 @@
 pipeline {
     agent any
+    tools { 
+        maven 'Maven 3.6' 
+        jdk 'jdk 9.0' 
+    }
+    
     stages {
-        stage('Build') {
+        stage ('Initialize') {
             steps {
-                sh 'echo "Hello World"'
+                echo "${PATH}"
                 sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
             }
         }
+    
+        stage('Build') {
+            steps {
+                 echo 'This is a minimal pipeline.'
+                 sh 'mvn clean install'
+             
+            }
+    }
     }
 }
