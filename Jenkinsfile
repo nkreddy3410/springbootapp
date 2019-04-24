@@ -28,7 +28,7 @@ pipeline {
             steps {
                  echo 'Deploying started .'
                  sh connect 
-                 sh deploy D:\workspace-sts-3.9.7.RELEASE\gs-serving-web-content-complete\target\gs-serving-web-content-0.1.0.war
+                 
              
             }
     }
