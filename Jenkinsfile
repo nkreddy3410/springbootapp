@@ -23,5 +23,13 @@ pipeline {
              
             }
     }
+        
+        stage('Deploy') {
+            steps {
+                 echo 'Deploying started .'
+                 sh 'wildfly:deploy'
+             
+            }
+    }
     }
 }
