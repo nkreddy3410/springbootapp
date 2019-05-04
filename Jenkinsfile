@@ -9,8 +9,9 @@ pipeline {
     
     stages {
         stage ('Initialize') {
+            environment = "SIT"
             steps {
-                environment = "SIT"
+                
                 echo "${PATH}"
                 sh '''
                     echo "PATH = ${PATH}"
