@@ -1,5 +1,6 @@
 
  def environment = "SIT"
+ def buildCmd =" mvn clean install"
 pipeline {
     agent any
     tools { 
@@ -18,7 +19,6 @@ pipeline {
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                     echo '''+environment+'''
-                    \\"$BUILD_NUMBER\\"
                 '''
             }
         }
@@ -26,7 +26,7 @@ pipeline {
         stage('Build') {
             steps {
                  echo 'This is a minimal pipeline.'
-                 sh 'mvn clean install'
+                 sh '''+buildCmd+'''
              
             }
     }
