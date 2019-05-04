@@ -1,5 +1,5 @@
 
-def evn = "DEV"
+def environment
 pipeline {
     agent any
     tools { 
@@ -10,11 +10,12 @@ pipeline {
     stages {
         stage ('Initialize') {
             steps {
+                environment = "SIT"
                 echo "${PATH}"
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
-                    "$evn"
+                    "${environment}"
                 ''' 
             }
         }
