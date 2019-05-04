@@ -1,3 +1,5 @@
+
+def evn = "DEV"
 pipeline {
     agent any
     tools { 
@@ -12,6 +14,7 @@ pipeline {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
+                    "${evn}"
                 ''' 
             }
         }
