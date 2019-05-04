@@ -13,6 +13,7 @@ pipeline {
             steps {
                
                 echo "${PATH}"
+               echo "${environment}"
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
