@@ -1,5 +1,5 @@
 
-
+ def environment = "SIT"
 pipeline {
     agent any
     tools { 
@@ -11,7 +11,7 @@ pipeline {
         stage ('Initialize') {
            
             steps {
-                def environment = "SIT"
+               
                 echo "${PATH}"
                echo "${environment}"
                 sh '''
