@@ -1,4 +1,4 @@
- def environment = "SIT"
+
 
 pipeline {
     agent any
@@ -11,13 +11,13 @@ pipeline {
         stage ('Initialize') {
            
             steps {
-               
+                def environment = "SIT"
                 echo "${PATH}"
                echo "${environment}"
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
-                    echo '''+${environment}+'''
+                    echo '''+environment+'''
                     \\"$BUILD_NUMBER\\"
                 '''
             }
