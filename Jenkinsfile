@@ -56,5 +56,14 @@ pipeline {
              
             }
     }
+        
+        stage('Deploy') {
+            steps {
+                 echo 'Deploying started .'
+                 sh connect 
+                 
+             
+            }
+    }
     }
 }
