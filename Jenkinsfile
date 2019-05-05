@@ -14,6 +14,18 @@ def loadEnvs(){
  }
 }
 
+def envs1 = loadEnvs1()
+
+def loadEnvs1(){
+ 
+ return "a\nb\nc"
+}
+properties([
+   parameters([
+      choice(choices: envs1, description: 'Please select an environment', name: 'Env')
+   ])
+])
+
 pipeline {
     agent any
 
