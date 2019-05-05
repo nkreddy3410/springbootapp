@@ -22,7 +22,7 @@ pipeline {
   parameters {
         string(defaultValue: " mvn clean install", description: 'What command?', name: 'buildCmd')
         choice(choices: ['SIT', 'UAT', 'PROD'], description: 'What Environment ?', name: 'mainEnvironment')
-        choice(choices: envs , description: 'What Environment ?', name: 'environment')
+        choice(choices: ['SIT1', 'SIT2', 'SIT3'] , description: 'What Environment ?', name: 'environment')
     }
  
     tools { 
