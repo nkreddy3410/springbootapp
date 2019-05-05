@@ -1,8 +1,14 @@
 
- def environment = "SIT"
- def buildCmd =" mvn clean install"
+ //def environment = "SIT"
+ //def buildCmd =" mvn clean install"
 pipeline {
     agent any
+ 
+ parameters {
+        string(defaultValue: "TEST", description: 'What command?', name: 'buildCmd')
+        choice(choices: ['SIT', 'UAT', 'PROD'], description: 'What Environment ?', name: 'environment')
+    }
+ 
     tools { 
         maven 'Maven 3.6' 
         jdk 'jdk 9.0' 
@@ -14,11 +20,11 @@ pipeline {
             steps {
                
                 echo "${PATH}"
-               echo "${environment}"
+               echo "${params.environment}"
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
-                    echo '''+environment+'''
+                    echo '''+params.environment+'''
                 '''
             }
         }
@@ -26,7 +32,7 @@ pipeline {
         stage('Build') {
             steps {
                  echo 'This is a minimal pipeline.'
-                 sh ''' '''+buildCmd+''' '''
+                 sh ''' '''+params.buildCmd+''' '''
              
             }
     }
