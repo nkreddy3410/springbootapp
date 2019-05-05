@@ -18,11 +18,10 @@ def loadEnvs(){
 pipeline {
     agent any
 
-  parameters {
-        string(defaultValue: " mvn clean install", description: 'What command?', name: 'buildCmd')
-        choice(choices: ['SIT', 'UAT', 'PROD'], description: 'What Environment ?', name: 'mainEnvironment')
-        choice(choices: envs, description: 'What Environment ?', name: 'environment')
-    }
+  parameters([
+  		string(name: 'mybranch', defaultValue: 'undefined')
+  	])
+ 
     tools { 
         maven 'Maven 3.6' 
         jdk 'jdk 9.0' 
