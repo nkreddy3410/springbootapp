@@ -34,6 +34,7 @@ pipeline {
             steps {
                
                 echo "${PATH}"
+             echo "${PATH}"
                echo "${params.environment}"
                 sh '''
                     echo "PATH = ${PATH}"
