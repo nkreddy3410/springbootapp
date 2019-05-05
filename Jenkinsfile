@@ -4,7 +4,7 @@
 def envs = loadEnvs()
 
 def loadEnvs(){
- echo "${params.mainEnvironment}"
+ //echo "${params.mainEnvironment}"
  if(params.mainEnvironment=='SIT'){
  
  }else if(params.mainEnvironment=='UAT'){
