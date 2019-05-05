@@ -14,12 +14,6 @@ def loadEnvs(){
  }
 }
 
-def envs1 = loadEnvs1()
-
-def loadEnvs1(){
- 
- return "a\nb\nc"
-}
 
 pipeline {
     agent any
