@@ -1,12 +1,25 @@
 
  //def environment = "SIT"
  //def buildCmd =" mvn clean install"
+def envs = loadEnvs()
+
+def loadEnvs(){
+ echo "${params.mainEnvironment}"
+ if(params.mainEnvironment=='SIT'){
+ 
+ }else if(params.mainEnvironment=='UAT'){
+ 
+ }else if(params.mainEnvironment=='PROD'){
+ }
+}
+
 pipeline {
     agent any
  
  parameters {
         string(defaultValue: "TEST", description: 'What command?', name: 'buildCmd')
-        choice(choices: ['SIT', 'UAT', 'PROD'], description: 'What Environment ?', name: 'environment')
+        choice(choices: ['SIT', 'UAT', 'PROD'], description: 'What Environment ?', name: 'mainEnvironment')
+        choice(choices: envs, description: 'What Environment ?', name: 'environment')
     }
  
     tools { 
