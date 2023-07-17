@@ -12,7 +12,7 @@ jobs:
       - name: setu JDK
         uses: actions/setup-java@v2
         with:
-         java-version: "1.8"
+         java-version: "17"
          distribution: temurin
       - name: Test
         run: mvn test
